@@ -1,0 +1,54 @@
+:root {
+  /* Colors */
+  --primary: #4361ee;
+  --primary-dark: #3a56d4;
+  --secondary: #7209b7;
+  --positive: #06d6a0;
+  --negative: #ef476f;
+  --neutral: #8d99ae;
+  --background: #f8f9fa;
+  --text-primary: #2b2d42;
+  --text-secondary: #6c757d;
+  --border: #ced4da;
+  --card-bg: #ffffff;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+
+  /* Borders */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #121212;
+    --card-bg: #1e1e1e;
+    --text-primary: #f8f9fa;
+    --text-secondary: #adb5bd;
+    --border: #4b4b4b;
+  }
+}
+
+/* Utility classes */
+.text-positive { color: var(--positive); }
+.text-negative { color: var(--negative); }
+.text-neutral { color: var(--neutral); }
+
+.bg-positive { background-color: rgba(6, 214, 160, 0.1); }
+.bg-negative { background-color: rgba(239, 71, 111, 0.1); }
+.bg-neutral { background-color: rgba(141, 153, 174, 0.1); }

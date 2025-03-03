@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+graphene
+starlette
+transformers
+torch
+pydantic
+graphql-core
+python-multipart
