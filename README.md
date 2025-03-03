@@ -28,13 +28,6 @@ The application consists of two primary components:
    - Responsive design that works across devices
    - Interactive UI with real-time feedback
 
-## Prerequisites
-
-- Docker and Docker Compose (for containerized setup)
-- Python 3.11+ (for manual backend setup)
-- Node.js 18+ (for manual frontend setup)
-- Hugging Face API token (for downloading the model)
-
 ## Installation and Setup
 
 ### Using Docker (Recommended)
