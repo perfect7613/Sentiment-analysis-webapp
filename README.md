@@ -1,4 +1,4 @@
-Collecting workspace information# Multilingual Sentiment Analysis Application
+Sentiment Analysis Application
 
 A full-stack web application that provides sentiment analysis for text in multiple languages. The application can detect whether text has positive, negative, or neutral sentiment and provides confidence scores for each analysis.
 
