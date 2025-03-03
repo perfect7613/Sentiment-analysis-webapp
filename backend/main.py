@@ -12,22 +12,22 @@ import sqlite3
 from datetime import datetime
 import asyncio
 
-# Load environment variables from .env file
+
 load_dotenv()
 
-# Initialize FastAPI app
+
 app = FastAPI(title="Multilingual Sentiment Analysis API")
 
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with specific origins
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# API key authentication
+
 API_KEY = os.environ.get("API_KEY", "default_api_key")
 api_key_header = APIKeyHeader(name="X-API-Key", auto_error=False)
 
@@ -39,7 +39,7 @@ async def get_api_key(api_key_header: str = Security(api_key_header)):
         detail="Invalid API Key",
     )
 
-# Load the sentiment analysis model (with caching)
+
 model_cache = {}
 
 async def get_sentiment_analyzer():
@@ -111,18 +111,12 @@ def get_predictions(limit=10):
         })
     return predictions
 
-# ------------------ GraphQL Schema ------------------ #
 
-# 1) Define a new type to hold the raw label scores
+
 class LabelScore(graphene.ObjectType):
     label = graphene.String()
     score = graphene.Float()
 
-# 2) Extend SentimentResult to return:
-#    - final mapped sentiment ("positive"/"negative"/"neutral")
-#    - final score
-#    - language
-#    - allScores for the raw distribution
 class SentimentResult(graphene.ObjectType):
     sentiment = graphene.String()
     score = graphene.Float()
@@ -160,20 +154,17 @@ class AnalyzeSentiment(graphene.Mutation):
                 )
             )
             
-        # Truncate if very long
         if len(text) > 10000:
             text = text[:10000]
             
         analyzer = await get_sentiment_analyzer()
 
-        # Helper to pick the best label from the distribution
         def get_best_label(dist):
             best = max(dist, key=lambda x: x["score"])
             return best["label"], best["score"]
 
         all_scores_aggregated = []
         
-        # Updated mapping to include "Very Positive" and "Very Negative"
         if len(text) > 512:
             chunks = [text[i:i+512] for i in range(0, len(text), 512)]
             positive_count = 0
