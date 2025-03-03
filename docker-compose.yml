@@ -2,7 +2,9 @@ version: '3.8'
 
 services:
   backend:
-    build: ./backend
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
     container_name: sentiment-analysis-backend
     environment:
       - HF_AUTH_TOKEN=${HF_AUTH_TOKEN}
@@ -14,7 +16,9 @@ services:
     restart: unless-stopped
   
   frontend:
-    build: ./frontend
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
     container_name: sentiment-analysis-frontend
     environment:
       - VITE_API_URL=http://localhost:8000/graphql
