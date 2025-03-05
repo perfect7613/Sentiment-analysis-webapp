@@ -27,6 +27,9 @@ The application consists of two primary components:
    - Apollo Client for GraphQL communication
    - Responsive design that works across devices
    - Interactive UI with real-time feedback
+   
+## Demo
+https://github.com/user-attachments/assets/64b2fced-0e15-42c5-8936-fa22c47523cd
 
 ## Installation and Setup
 
